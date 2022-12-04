@@ -1,0 +1,46 @@
+enum subStatus{
+  expired,
+  active
+}
+
+enum industryType {
+  energy,
+  agriculture,
+  landUseChange,
+  industrialProcesses,
+  waste
+}
+
+type Register @entity {
+  id: ID!
+  uniqueID: String
+  companyAddress: Bytes
+  registrationTime: BigInt
+  industryType: String
+  subStatus: String!
+}
+
+type TransferCredit @entity {
+  id: ID!
+  admin: Bytes
+  companyAddress: Bytes
+  tokenSupplied: BigInt
+}
+
+type Approve @entity{
+  id: ID!
+  spender: Bytes
+  owner: Bytes!
+  amount: BigInt!
+}
+
+type Withdraw @entity{
+  id: ID!
+  admin: Bytes
+  amount: BigInt 
+}
+
+type balance @entity{
+  id: ID!
+  balance: BigInt!
+}
